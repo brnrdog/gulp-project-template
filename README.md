@@ -1,8 +1,11 @@
-### Gulp Structure Setup
+## Gulp Project Setup
 
-This is a initial structure for project using gulp to build.
+This is a initial setup for a simple gulp project. It aims to provide some common tasks to a web app development within a organized structure.
 
-#### Structure
+### Structure
+
+A sample project strucutre would be:
+
 ```
 |-- app
 |  |-- bower_modules
@@ -24,9 +27,5 @@ This is a initial structure for project using gulp to build.
 |  |  |-- images
 |  |-- index.html
 |-- node_modules
+|-- test
 ```
-
-#### Todo
-
-- Add [gulp-usemin](https://npmjs.org/package/gulp-usemin)
-- Define what will be the dist folder and 'build' folder
