@@ -1,0 +1,25 @@
+{
+  "name": "gulp-project-template",
+  "version": "0.0.0",
+  "description": "A gulp web app template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bernardogfilho/gulp-project-template"
+  },
+  "keywords": [
+    "gulp",
+    "template",
+    "javascript"
+  ],
+  "author": "bernardogfilho",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "e459c1146a3f530fb889881b81caea033320ce03",
+  "bugs": {
+    "url": "https://github.com/bernardogfilho/gulp-project-template/issues"
+  }
+}
