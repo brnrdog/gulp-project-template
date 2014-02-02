@@ -1,6 +1,6 @@
-## Gulp Project Setup
+## [gulp.js](http://gulpjs.com/) project template
 
-This is a initial setup for a simple gulp project. It aims to provide some common tasks to a web app development within a organized structure.
+This is a template or a initial setup for a simple [gulp](http://gulpjs.com/) project. It aims to provide some common tasks to a web app development within a organized structure.
 
 ### Structure
 
