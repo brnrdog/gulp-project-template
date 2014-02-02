@@ -21,5 +21,9 @@
   "gitHead": "e459c1146a3f530fb889881b81caea033320ce03",
   "bugs": {
     "url": "https://github.com/bernardogfilho/gulp-project-template/issues"
+  },
+  "devDependencies": {
+    "gulp-util": "~2.2.13",
+    "gulp": "~3.5.0"
   }
 }
