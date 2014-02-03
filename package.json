@@ -31,5 +31,8 @@
     "gulp-clean": "~0.2.4",
     "gulp-concat": "~2.1.7",
     "gulp-jshint": "~1.3.4"
+  },
+  "dependencies": {
+    "gulp-coffee": "~1.4.1"
   }
 }
