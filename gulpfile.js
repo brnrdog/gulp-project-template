@@ -2,18 +2,18 @@
 
 'use strict';
 
+// gulp plugins
 var gulp     = require('gulp'),
 gutil        = require('gulp-util'),
 sass         = require('gulp-ruby-sass'),
 autoprefixer = require('gulp-autoprefixer'),
-clean        = require('gulp-clean'),
 jshint       = require('gulp-jshint'),
+coffee       = require('gulp-coffee'),
 concat       = require('gulp-concat');
 
-// Paths variables
+// paths variables
 var stylesPath = 'app/assets/styles',
 scriptsPath    = 'app/assets/scripts';
-
 
 gulp.task('styles', function () {
   return gulp.src(stylesPath + '/**/*.scss')
@@ -22,7 +22,13 @@ gulp.task('styles', function () {
   .pipe(gulp.dest(stylesPath));
 });
 
-gulp.task('scripts', function () {
+gulp.task('coffee', function () {
+  return gulp.src(scriptsPath + '/**/*.coffee')
+  .pipe(coffee({bare: true})).on('error', gutil.log)
+  .pipe(gulp.dest(scriptsPath));
+});
+
+gulp.task('scripts', ['coffee'], function () {
   return gulp.src(scriptsPath + '/**/*.js')
   .pipe(jshint(), gutil.log('Running jsHint'))
   .pipe(jshint.reporter('default'))
@@ -31,6 +37,17 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('clean', function () {
-  return gulp.src([stylesPath + '**/*.css', ], {read: false})
-  .pipe(clean());
+  gutil.log('Clean task goes here...');
+});
+
+gulp.task('build', function () {
+  gutil.log('Build task goes here...');
+});
+
+gulp.task('serve', function () {
+  gutil.log('Serve task goes here...');
+});
+
+gulp.task('default', function () {
+  gutil.log('Default task goes here...');
 });
