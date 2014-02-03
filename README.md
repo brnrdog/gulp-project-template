@@ -4,7 +4,7 @@ This is a template or a initial setup for a simple [gulp](http://gulpjs.com/) pr
 
 ### Structure
 
-A sample project strucutre would be:
+A sample project strucutre could be:
 
 ```
 |-- app
@@ -29,3 +29,16 @@ A sample project strucutre would be:
 |-- node_modules
 |-- test
 ```
+
+### Build tasks
+
+The tasks this template aims are:
+
+- [x] Compiles scss files
+- [x] Minify styles
+- [x] Compiles CoffeeScript files
+- [x] Runs jsHint against js files
+- [ ] Runs mocha tests
+- [ ] Generates an optimized build 
+- [ ] Starts a server
+- [ ] Watches for changes
