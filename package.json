@@ -33,6 +33,7 @@
     "gulp-jshint": "~1.3.4"
   },
   "dependencies": {
-    "gulp-coffee": "~1.4.1"
+    "gulp-coffee": "~1.4.1",
+    "gulp-connect": "~0.1.6"
   }
 }

@@ -9,7 +9,8 @@ sass         = require('gulp-ruby-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 jshint       = require('gulp-jshint'),
 coffee       = require('gulp-coffee'),
-concat       = require('gulp-concat');
+concat       = require('gulp-concat'),
+connect      = require('gulp-connect');
 
 // paths variables
 var stylesPath = 'app/assets/styles',
@@ -36,16 +37,34 @@ gulp.task('scripts', ['coffee'], function () {
   .pipe(gulp.dest(scriptsPath));
 });
 
+gulp.task('connect', connect.server({
+  root: './app',
+  port: 1337,
+  livereload: true,
+  open: {
+    file: 'index.html',
+    browser: 'Google Chrome'
+  }
+}));
+
+gulp.task('watch', function () {
+  gulp.watch([ stylesPath + '/**/*.scss'], ['styles']);
+  gulp.watch([ scriptsPath + '/**/*.coffee'], ['scripts']);
+  gulp.watch([
+    './app/**/*.html',
+    './app/assets/styles/**/*.css',
+    './app/assets/scripts/**/*.js'
+  ], connect.reload);
+});
+
+gulp.task('serve', ['connect', 'styles', 'scripts', 'watch']);
+
 gulp.task('clean', function () {
   gutil.log('Clean task goes here...');
 });
 
 gulp.task('build', function () {
   gutil.log('Build task goes here...');
-});
-
-gulp.task('serve', function () {
-  gutil.log('Serve task goes here...');
 });
 
 gulp.task('default', function () {

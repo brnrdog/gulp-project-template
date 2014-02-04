@@ -40,5 +40,5 @@ The tasks this template aims are:
 - [x] Runs jsHint against js files
 - [ ] Runs mocha tests
 - [ ] Generates an optimized build 
-- [ ] Starts a server
-- [ ] Watches for changes
+- [x] Starts a server
+- [x] Watches for changes
