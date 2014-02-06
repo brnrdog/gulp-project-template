@@ -1,1 +1,1 @@
-console.log 'hello bernardo!'
+alert "Hey!"

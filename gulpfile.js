@@ -9,8 +9,9 @@ sass         = require('gulp-ruby-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 jshint       = require('gulp-jshint'),
 coffee       = require('gulp-coffee'),
-concat       = require('gulp-concat'),
-connect      = require('gulp-connect');
+clean       = require('gulp-clean'),
+connect      = require('gulp-connect'),
+usemin       = require('gulp-usemin');
 
 // paths variables
 var stylesPath = 'app/assets/styles',
@@ -33,7 +34,6 @@ gulp.task('scripts', ['coffee'], function () {
   return gulp.src(scriptsPath + '/**/*.js')
   .pipe(jshint(), gutil.log('Running jsHint'))
   .pipe(jshint.reporter('default'))
-  .pipe(concat('script.js'), gutil.log('Concatenating scripts files', 'Done'))
   .pipe(gulp.dest(scriptsPath));
 });
 
@@ -63,8 +63,19 @@ gulp.task('clean', function () {
   gutil.log('Clean task goes here...');
 });
 
-gulp.task('build', function () {
-  gutil.log('Build task goes here...');
+gulp.task('usemin', function () {
+  gulp.src('./app/**/*.html')
+  .pipe(usemin(), gutil.log('Running usemin...'))
+  .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('clean-build', function () {
+  gulp.src('dist/', {read: false})
+  .pipe(clean());
+});
+
+gulp.task('build', ['styles', 'scripts', 'clean-build'], function () {
+  return gulp.start('usemin');
 });
 
 gulp.task('default', function () {
