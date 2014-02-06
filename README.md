@@ -40,6 +40,6 @@ The tasks this template aims are:
 - [x] Compiles CoffeeScript files
 - [x] Runs jsHint against js files
 - [ ] Runs mocha tests
-- [ ] Generates an optimized build 
+- [x] Generates an optimized build 
 - [x] Starts a server
 - [x] Watches for changes
