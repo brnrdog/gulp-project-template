@@ -1,1 +1,1 @@
-alert "Hey!"
+console.log "Hello World!"
