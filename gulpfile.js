@@ -20,14 +20,14 @@ gulp.task('connect', connect.server({
   livereload: true
 }));
 
-gulp.task('html', ['coffee'], function () {
+gulp.task('html', function () {
   return gulp.src('./app/**/*.html')
     .pipe(connect.reload());
 });
 
 // Scss compiler task
 gulp.task('scss', function () {
-  gulp.src('./app/assets/styles**/*.scss')
+  return gulp.src('./app/assets/styles/**/*.scss')
   .pipe(sass({style: 'expanded'}), gutil.log('Compiling scss files...'))
   .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'), gutil.log('Applying autoprefixer...'))
   .pipe(gulp.dest('./app/assets/styles/'))
@@ -52,7 +52,6 @@ gulp.task('scripts', ['coffee'], function () {
 
 gulp.task('watch', function () {
   gulp.watch([ 'app/assets/styles/**/*.scss'], ['scss']);
-  gulp.watch([ 'app/assets/styles/**/*.css'], connect.reload);
   gulp.watch([ 'app/assets/scripts' + '/**/*.coffee'], ['scripts']);
   gulp.watch(['./app/**/*.html'], ['html']);
 });
