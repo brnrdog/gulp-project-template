@@ -1,6 +1,6 @@
 {
   "name": "gulp-project-template",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A gulp web app template",
   "main": "index.js",
   "scripts": {
