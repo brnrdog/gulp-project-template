@@ -48,7 +48,7 @@ gulp.task('imagemin', function () {
       .pipe(gulp.dest('/dest/img')),
     gulp.src('./app/assets/images/**/*.gif')
       .pipe(imagemin())
-      .pipe(gulp.dest('/dest/img')),
+      .pipe(gulp.dest('/dest/img'))
   );
 });
 
