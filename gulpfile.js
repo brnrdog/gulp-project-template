@@ -5,13 +5,15 @@
 // gulp plugins
 var gulp     = require('gulp'),
 gutil        = require('gulp-util'),
+es           = require('event-stream'),
 sass         = require('gulp-ruby-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 jshint       = require('gulp-jshint'),
 coffee       = require('gulp-coffee'),
 clean        = require('gulp-clean'),
 connect      = require('gulp-connect'),
-usemin       = require('gulp-usemin');
+usemin       = require('gulp-usemin'),
+imagemin     = require('gulp-imagemin');
 
 // Connect Task
 gulp.task('connect', connect.server({
@@ -32,6 +34,22 @@ gulp.task('scss', function () {
   .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'), gutil.log('Applying autoprefixer...'))
   .pipe(gulp.dest('./app/assets/styles/'))
   .pipe(connect.reload(), gutil.log('Reloading browser...'));
+});
+
+// Minify images
+
+gulp.task('imagemin', function () {
+  return es.concat(
+    gulp.src('./app/assets/images/**/*.png')
+      .pipe(imagemin())
+      .pipe(gulp.dest('/dest/img')),
+    gulp.src('./app/assets/images/**/*.jpg')
+      .pipe(imagemin())
+      .pipe(gulp.dest('/dest/img')),
+    gulp.src('./app/assets/images/**/*.gif')
+      .pipe(imagemin())
+      .pipe(gulp.dest('/dest/img')),
+  );
 });
 
 // CoffeeScript compiler task
@@ -73,7 +91,7 @@ gulp.task('clean-build', function () {
     .pipe(clean());
 });
 
-gulp.task('build', ['scss', 'scripts', 'clean-build'], function () {
+gulp.task('build', ['scss', 'scripts', 'imagemin', 'clean-build'], function () {
   return gulp.start('usemin');
 });
 
