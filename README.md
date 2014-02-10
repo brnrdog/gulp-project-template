@@ -10,22 +10,21 @@ A sample project strucutre could be:
 ```
 |-- app
 |  |-- bower_modules
-|  |-- assets
-|  |  |-- styles
-|  |  |  |-- style_one.scss
-|  |  |  |-- style_two.scss
-|  |  |-- scripts
-|  |  |  |-- script_one.coffee
-|  |  |  |-- script_two.coffee
-|  |  |-- images
+|  |-- styles
+|  |  |-- style_one.scss
+|  |  |-- style_two.scss
+|  |-- scripts
+|  |  |-- script_one.coffee
+|  |  |-- script_two.coffee
+|  |-- images
+|  |  |-- background.png
 |  |-- index.html
 |-- dist
-|  |-- assets
-|  |  |-- styles
-|  |  |  |-- main.min.css
-|  |  |-- scripts
-|  |  |  |-- main.min.js
-|  |  |-- images
+|  |-- styles
+|  |  |-- main.min.css
+|  |-- scripts
+|  |  |-- main.min.js
+|  |-- images
 |  |-- index.html
 |-- node_modules
 |-- test
