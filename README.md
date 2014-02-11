@@ -24,7 +24,7 @@ A sample project strucutre could be:
 |  |-- styles
 |  |  |-- main.min.css
 |  |-- scripts
-|  |  |-- main.min.js
+|  |  |-- scripts.min.js
 |  |-- images
 |  |-- index.html
 |-- node_modules
@@ -39,6 +39,7 @@ The tasks this template aims are:
 - [x] Minify styles
 - [x] Compiles CoffeeScript files
 - [x] Runs jsHint against js files
+- [ ] Browserify js files
 - [ ] Runs mocha tests
 - [x] Generates an optimized build 
 - [x] Starts a server
