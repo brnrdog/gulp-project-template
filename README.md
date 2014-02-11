@@ -1,11 +1,10 @@
 ## [gulp.js](http://gulpjs.com/) project template
 <a href="http://badge.fury.io/js/gulp-project-template"><img src="https://badge.fury.io/js/gulp-project-template@2x.png" alt="NPM version" height="18"></a>
 <a href="https://david-dm.org/bernardogfilho/gulp-project-template"><img src="https://david-dm.org/bernardogfilho/gulp-project-template.png?theme=shields.io" alt=""></a>
-[![Build Status](https://travis-ci.org/bernardogfilho/gulp-project-template.png?branch=master)](https://travis-ci.org/bernardogfilho/gulp-project-template)
 
 This is a template or a initial setup for a simple [gulp](http://gulpjs.com/) project. It aims to provide some common tasks to a web app development within a organized structure.
 
-## Features
+### Features
 
 - CSS Autoprefixing
 - Automatically minify css files
@@ -21,9 +20,9 @@ This is a template or a initial setup for a simple [gulp](http://gulpjs.com/) pr
 - SOON: Runs Mocha tests
 
 
-## Structure
+### Structure
 
-A sample project strucutre could be:
+A sample project strucutre would be:
 
 ```
 |-- app
