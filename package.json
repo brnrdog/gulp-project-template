@@ -35,6 +35,7 @@
     "gulp-usemin": "~0.1.4",
     "gulp-connect": "~0.3.1",
     "gulp-livereload": "~1.0.1",
-    "gulp-imagemin": "~0.1.5"
+    "gulp-imagemin": "~0.1.5",
+    "event-stream": "~3.1.0"
   }
 }
