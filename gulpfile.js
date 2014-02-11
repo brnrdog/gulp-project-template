@@ -29,10 +29,10 @@ gulp.task('html', function () {
 
 // Scss compiler task
 gulp.task('scss', function () {
-  return gulp.src('./app/assets/styles/**/*.scss')
+  return gulp.src('./app/styles/**/*.scss')
   .pipe(sass({style: 'expanded'}), gutil.log('Compiling scss files...'))
   .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'), gutil.log('Applying autoprefixer...'))
-  .pipe(gulp.dest('./app/assets/styles/'))
+  .pipe(gulp.dest('./app/styles/'))
   .pipe(connect.reload(), gutil.log('Reloading browser...'));
 });
 
@@ -40,13 +40,13 @@ gulp.task('scss', function () {
 
 gulp.task('imagemin', function () {
   return es.concat(
-    gulp.src('./app/assets/images/**/*.png')
+    gulp.src('./app/images/**/*.png')
       .pipe(imagemin())
       .pipe(gulp.dest('/dest/img')),
-    gulp.src('./app/assets/images/**/*.jpg')
+    gulp.src('./app/images/**/*.jpg')
       .pipe(imagemin())
       .pipe(gulp.dest('/dest/img')),
-    gulp.src('./app/assets/images/**/*.gif')
+    gulp.src('./app/images/**/*.gif')
       .pipe(imagemin())
       .pipe(gulp.dest('/dest/img'))
   );
@@ -54,23 +54,23 @@ gulp.task('imagemin', function () {
 
 // CoffeeScript compiler task
 gulp.task('coffee', function () {
-  return gulp.src('app/assets/scripts/**/*.coffee')
+  return gulp.src('app/scripts/**/*.coffee')
     .pipe(coffee({bare: true})).on('error', gutil.log)
-    .pipe(gulp.dest('app/assets/scripts'));
+    .pipe(gulp.dest('app/scripts'));
 });
 
 // JSHint task
 gulp.task('scripts', ['coffee'], function () {
-  return gulp.src('app/assets/scripts/**/*.js')
+  return gulp.src('app/scripts/**/*.js')
     .pipe(jshint(), gutil.log('Running jsHint'))
     .pipe(jshint.reporter('default'))
-    .pipe(gulp.dest('app/assets/scripts'))
+    .pipe(gulp.dest('app/scripts'))
     .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
-  gulp.watch([ 'app/assets/styles/**/*.scss'], ['scss']);
-  gulp.watch([ 'app/assets/scripts' + '/**/*.coffee'], ['scripts']);
+  gulp.watch([ 'app/styles/**/*.scss'], ['scss']);
+  gulp.watch([ 'app/scripts' + '/**/*.coffee'], ['scripts']);
   gulp.watch(['./app/**/*.html'], ['html']);
 });
 
