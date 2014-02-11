@@ -83,7 +83,7 @@ gulp.task('clean', function () {
 gulp.task('usemin', function () {
   gulp.src('./app/**/*.html')
     .pipe(usemin(), gutil.log('Running usemin...'))
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('clean-build', function () {
@@ -91,8 +91,7 @@ gulp.task('clean-build', function () {
     .pipe(clean());
 });
 
-gulp.task('build', ['scss', 'scripts', 'imagemin', 'clean-build'], function () {
-  return gulp.start('usemin');
+gulp.task('build', ['clean-build', 'scss', 'scripts', 'imagemin', 'usemin'], function () {
 });
 
 gulp.task('default', function () {
