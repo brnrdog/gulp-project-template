@@ -97,3 +97,5 @@ gulp.task('build', ['clean-build', 'scss', 'scripts', 'imagemin', 'usemin'], fun
 gulp.task('default', function () {
   gutil.log('Default task goes here...');
 });
+
+exports.run = gulp.start('scss');
