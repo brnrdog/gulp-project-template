@@ -33,7 +33,7 @@
     "gulp-concat": "~2.1.7",
     "gulp-jshint": "~1.4.0",
     "gulp-usemin": "~0.2.1",
-    "gulp-connect": "~0.4.0",
+    "gulp-connect": "~0.8.0",
     "gulp-livereload": "~1.1.1",
     "gulp-imagemin": "~0.1.5",
     "event-stream": "~3.1.0"
