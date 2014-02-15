@@ -12,12 +12,13 @@ jshint       = require('gulp-jshint'),
 coffee       = require('gulp-coffee'),
 clean        = require('gulp-clean'),
 connect      = require('gulp-connect'),
+browserify   = require('gulp-browserify'),
 usemin       = require('gulp-usemin'),
 imagemin     = require('gulp-imagemin');
 
 // Connect Task
 gulp.task('connect', connect.server({
-  root: './app',
+  root: ['./app'],
   port: 1337,
   livereload: true
 }));
@@ -64,6 +65,10 @@ gulp.task('scripts', ['coffee'], function () {
   return gulp.src('app/scripts/**/*.js')
     .pipe(jshint(), gutil.log('Running jsHint'))
     .pipe(jshint.reporter('default'))
+    .pipe(browserify({
+      insertGlobals: true,
+      debug: !gulp.env.production
+    }))
     .pipe(gulp.dest('app/scripts'))
     .pipe(connect.reload());
 });
