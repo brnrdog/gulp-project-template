@@ -4,4 +4,4 @@ node_js:
   - "0.10"
 before_install: gem install sass
 script:
-  'mocha test/test.js'
+  'istanbul cover _mocha test/test.js -R spec'
