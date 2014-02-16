@@ -98,4 +98,5 @@ gulp.task('default', function () {
   gutil.log('Default task goes here...');
 });
 
-exports.run = gulp.start('scss');
+exports.runScss = gulp.start('scss');
+exports.runScripts = gulp.start('scripts');
