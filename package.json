@@ -38,6 +38,7 @@
     "gulp-imagemin": "~0.1.5",
     "event-stream": "~3.1.0",
     "mocha": "~1.17.1",
-    "mocha-lcov-reporter": "0.0.1"
+    "mocha-lcov-reporter": "0.0.1",
+    "istanbul": "~0.2.4"
   }
 }
