@@ -1,0 +1,16 @@
+{
+  "name": "gulp-project-template",
+  "version": "0.0.4",
+  "homepage": "https://github.com/bernardogfilho/gulp-project-template",
+  "authors": [
+    "Bernardo Gurgel <bernardogfilho@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
