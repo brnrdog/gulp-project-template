@@ -7,9 +7,9 @@ var gulp = require('../gulpfile');
 var fs = require('fs');
 
 describe('Gulpfile', function(){
-
   before(function(done) {
-    gulp.run;
+    gulp.runScss;
+    gulp.runScripts;
     done();
   });
 
