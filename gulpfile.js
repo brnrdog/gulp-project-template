@@ -6,7 +6,7 @@
 var gulp     = require('gulp'),
 gutil        = require('gulp-util'),
 es           = require('event-stream'),
-sass         = require('gulp-ruby-sass'),
+sass         = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 jshint       = require('gulp-jshint'),
 coffee       = require('gulp-coffee'),
@@ -17,7 +17,7 @@ imagemin     = require('gulp-imagemin');
 
 // Connect Task
 gulp.task('connect', connect.server({
-  root: './app',
+  root: ['./app'],
   port: 1337,
   livereload: true
 }));
@@ -30,10 +30,15 @@ gulp.task('html', function () {
 // Scss compiler task
 gulp.task('scss', function () {
   return gulp.src('./app/styles/**/*.scss')
-  .pipe(sass({style: 'expanded'}), gutil.log('Compiling scss files...'))
-  .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'), gutil.log('Applying autoprefixer...'))
-  .pipe(gulp.dest('./app/styles/'))
-  .pipe(connect.reload(), gutil.log('Reloading browser...'));
+    .pipe(sass({
+      onError: function (error) {
+        gutil.log(gutil.colors.red(error));
+        gutil.beep();
+      }
+    }))
+    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'), gutil.log('Applying autoprefixer...'))
+    .pipe(gulp.dest('./app/styles/'))
+    .pipe(connect.reload());
 });
 
 // Minify images
