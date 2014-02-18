@@ -1,4 +1,4 @@
-/* globals require */
+/* globals require, exports */
 
 'use strict';
 
@@ -23,27 +23,30 @@ gulp.task('connect', connect.server({
   livereload: true
 }));
 
+// Html reload
 gulp.task('html', function () {
   return gulp.src('./app/**/*.html')
     .pipe(connect.reload());
 });
 
-// Scss compiler task
-gulp.task('scss', function () {
+// sass compiler task
+gulp.task('sass', function () {
   return gulp.src('./app/styles/**/*.scss')
     .pipe(sass({
       onError: function (error) {
         gutil.log(gutil.colors.red(error));
         gutil.beep();
+      },
+      onSuccess: function () {
+        gutil.log(gutil.colors.green('Sass styles compiled successfully.'));
       }
     }))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'), gutil.log('Applying autoprefixer...'))
+    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(gulp.dest('./app/styles/'))
     .pipe(connect.reload());
 });
 
 // Minify images
-
 gulp.task('imagemin', function () {
   return es.concat(
     gulp.src('./app/images/**/*.png')
@@ -65,26 +68,25 @@ gulp.task('coffee', function () {
     .pipe(gulp.dest('app/scripts'));
 });
 
-// JSHint task
+// Script task
 gulp.task('scripts', ['coffee'], function () {
   return gulp.src('app/scripts/**/*.js')
-    .pipe(jshint(), gutil.log('Running jsHint'))
+    .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(browserify({
-      insertGlobals: true,
-      debug: !gulp.env.production
+      insertGlobals: true
     }))
     .pipe(gulp.dest('app/scripts'))
     .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
-  gulp.watch([ 'app/styles/**/*.scss'], ['scss']);
+  gulp.watch([ 'app/styles/**/*.scss'], ['sass']);
   gulp.watch([ 'app/scripts' + '/**/*.coffee'], ['scripts']);
   gulp.watch(['./app/**/*.html'], ['html']);
 });
 
-gulp.task('serve', ['connect', 'scss', 'scripts', 'watch']);
+gulp.task('serve', ['connect', 'sass', 'scripts', 'watch']);
 
 gulp.task('clean', function () {
   gutil.log('Clean task goes here...');
@@ -101,12 +103,12 @@ gulp.task('clean-build', function () {
     .pipe(clean());
 });
 
-gulp.task('build', ['clean-build', 'scss', 'scripts', 'imagemin', 'usemin'], function () {
+gulp.task('build', ['clean-build', 'sass', 'scripts', 'imagemin', 'usemin'], function () {
 });
 
 gulp.task('default', function () {
   gutil.log('Default task goes here...');
 });
 
-exports.runScss = gulp.start('scss');
+exports.runScss = gulp.start('sass');
 exports.runScripts = gulp.start('scripts');
