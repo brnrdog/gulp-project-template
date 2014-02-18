@@ -18,7 +18,7 @@ This is a template or a initial setup for a simple [gulp](http://gulpjs.com/) pr
 - Watches for changes
 - Initialize a preview server with LiveReload support
 - Generates a optimized build
-- SOON: Bundles js modules via browserify
+- Bundles js modules via browserify
 - SOON: Runs Mocha tests
 
 

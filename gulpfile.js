@@ -14,7 +14,8 @@ clean        = require('gulp-clean'),
 connect      = require('gulp-connect'),
 browserify   = require('gulp-browserify'),
 usemin       = require('gulp-usemin'),
-imagemin     = require('gulp-imagemin');
+imagemin     = require('gulp-imagemin'),
+rename = require('gulp-rename');
 
 // Connect Task
 gulp.task('connect', connect.server({
@@ -70,11 +71,14 @@ gulp.task('coffee', function () {
 
 // Script task
 gulp.task('scripts', ['coffee'], function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/scripts/app.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(browserify({
       insertGlobals: true
+    }))
+    .pipe(rename(function (path) {
+      path.basename = 'bundle';
     }))
     .pipe(gulp.dest('app/scripts'))
     .pipe(connect.reload());
@@ -82,7 +86,7 @@ gulp.task('scripts', ['coffee'], function () {
 
 gulp.task('watch', function () {
   gulp.watch([ 'app/styles/**/*.scss'], ['sass']);
-  gulp.watch([ 'app/scripts' + '/**/*.coffee'], ['scripts']);
+  gulp.watch([ 'app/scripts' + '/**/*.js'], ['scripts']);
   gulp.watch(['./app/**/*.html'], ['html']);
 });
 
