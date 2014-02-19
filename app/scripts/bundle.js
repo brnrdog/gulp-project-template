@@ -6,7 +6,7 @@ greet = require('./greet');
 
 console.log(greet('world!'));
 
-}).call(this,require("/Users/bernardog/Github/gulp-project-template/node_modules/gulp-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_b4d27782.js","/")
+}).call(this,require("/Users/bernardog/Github/gulp-project-template/node_modules/gulp-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_d950fb20.js","/")
 },{"./greet":2,"/Users/bernardog/Github/gulp-project-template/node_modules/gulp-browserify/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":3,"buffer":4}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 var greet;

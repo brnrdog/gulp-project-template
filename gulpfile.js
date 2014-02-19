@@ -98,12 +98,12 @@ gulp.task('clean', function () {
 
 gulp.task('usemin', function () {
   gulp.src('./app/**/*.html')
-    .pipe(usemin(), gutil.log('Running usemin...'))
+    .pipe(usemin())
     .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('clean-build', function () {
-  gulp.src('dist/', {read: false})
+  return gulp.src('dist/', {read: false})
     .pipe(clean());
 });
 
@@ -113,6 +113,3 @@ gulp.task('build', ['clean-build', 'sass', 'scripts', 'imagemin', 'usemin'], fun
 gulp.task('default', function () {
   gutil.log('Default task goes here...');
 });
-
-exports.runScss = gulp.start('sass');
-exports.runScripts = gulp.start('scripts');
