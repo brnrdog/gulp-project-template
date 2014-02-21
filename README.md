@@ -1,6 +1,8 @@
-## [gulp.js](http://gulpjs.com/) project template
-<a href="http://badge.fury.io/js/gulp-project-template"><img src="https://badge.fury.io/js/gulp-project-template@2x.png" alt="NPM version" height="18"></a>
-[![Dependency Status](https://david-dm.org/bernardogfilho/gulp-project-template.svg?theme=shields.io)](https://david-dm.org/bernardogfilho/gulp-project-template)
+## [gulp.js](http://gulpjs.com/) project template <a href="http://badge.fury.io/js/gulp-project-template"><img src="https://badge.fury.io/js/gulp-project-template@2x.png" alt="NPM version" height="18"></a> [![Dependency Status](https://david-dm.org/bernardogfilho/gulp-project-template.svg?theme=shields.io)](https://david-dm.org/bernardogfilho/gulp-project-template)
+
+### NOTE
+
+**This project has moved as part of [GulpShot](https://github.com/bernardogfilho/gulp-shot) project. This repository is discontinued.**
 
 This is a template or a initial setup for a simple [gulp](http://gulpjs.com/) project. It aims to provide some common tasks to a web app development within a organized structure.
 
